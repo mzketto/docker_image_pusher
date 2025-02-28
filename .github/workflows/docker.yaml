@@ -3,8 +3,9 @@ name: Docker
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
-
+分支: [ main ]
+  schedule:
+    - cron: '00 23 * * *'
 
 env:
   ALIYUN_REGISTRY: "${{ secrets.ALIYUN_REGISTRY }}"
@@ -15,7 +16,7 @@ env:
 jobs:
 
   build:
-    name: Pull
+    name: 合并
     runs-on: ubuntu-latest
     steps:
     - name: Before freeing up disk space
