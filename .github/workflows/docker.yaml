@@ -4,8 +4,11 @@ on:
   workflow_dispatch:
   push:
 分支: [ main ]
+
+#每月10、20、30号执行更新
   schedule:
-    - cron: '00 23 * * *'
+    - cron: '0 0 0 10,20,30 * ? '
+   
 
 env:
   ALIYUN_REGISTRY: "${{ secrets.ALIYUN_REGISTRY }}"
